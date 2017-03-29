@@ -1,0 +1,88 @@
+#Icinga Installation steps
+
+#check iptables, Selinux
+#check ntp server
+
+#configure time zone in php and Install php-ldap
+vi /etc/php.ini
+[Date]
+date.timezone = America/NewYork
+:wq!
+
+yum install php-ldap
+
+#configure Icinga repo
+wget http://packages.icinga.org/epel/6Server/release/noarch/icinga-rpm-release-6-2.el6.noarch.rpm
+rpm -ivh icinga-rpm-release-6-2.el6.noarch.rpm
+
+#Install and start ICINGA2
+yum install icinga2
+ 
+#Start Icinga 2
+#Run the following commands to Enable, Start and check the the status of Icinga 2 service on Centos 7 
+
+service icinga2 status
+service icinga2 start
+service icinga2 status
+
+#MySQL Database Setup
+mysql -u root -p
+mysql> CREATE DATABASE icinga;
+GRANT SELECT, INSERT, UPDATE, DELETE, DROP, CREATE VIEW, INDEX, EXECUTE ON icinga.* TO 'icinga'@'localhost' IDENTIFIED BY 'password';
+
+#Installing MySQL IDO Module
+#Run the below command to install IDO MySQL module for Icinga2.
+ 
+yum install icinga2-ido-mysql
+ 
+mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql
+
+#A new configuration file will be created after installation of Icinga IDO Module
+#which is located in /etc/icinga2/features-available/ido-mysql.conf. 
+#So, open this file using any editor and update the database credentials in this file.
+
+vi /etc/icinga2/features-available/ido-mysql.conf
+
+library "db_ido_mysql"
+object IdoMysqlConnection "ido-mysql" {
+user = "icinga"
+password = "icinga"
+host = "localhost"
+database = "icinga"
+}
+
+
+#Then enable module and check the list it should now listed under the enabled module by using the following command in centos 6
+icinga2 feature enable ido-mysql
+icinga2 feature list
+
+#You check and change the dtaabase configuration setting if required by using the below file.
+view /etc/icinga2/features-available/ido-mysql.conf
+
+#External Command Pipe Setup
+#To enable the External Command Pipe we will be using the below, so that the Web interfaces 
+#and other Icinga addons are able to send commands to Icinga 2 through the external command pipe.
+ 
+icinga2 feature enable command
+
+#Enabling feature command. Make sure to restart Icinga 2 for these changes to take effect.
+
+service icinga2 status
+icinga2 feature list
+
+#Disabled features: api compatlog debuglog gelf graphite icingastatus livestatus opentsdb perfdata statusdata syslog
+#Enabled features: checker command ido-mysql mainlog notification
+
+#Icinga web 2 Installation
+
+yum install icingaweb2 icingacli -y
+
+#I ran into dependency problem.. Added EPEL repo and tried again
+
+Go to Browser and use link to compelte installation : http://icinga02.own.labs/icingaweb2/setup
+
+#Check steps and generate Key
+
+#follow screenshots
+
+

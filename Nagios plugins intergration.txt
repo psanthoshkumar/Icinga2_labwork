@@ -1,0 +1,6 @@
+#Integrate Nagios plugins
+
+#seeing lot of errors while login to icinga web console
+#it required nagios plugins to fix
+
+yum install nagios-plugins-all
