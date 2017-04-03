@@ -17,7 +17,8 @@ rpm -ivh icinga-rpm-release-6-2.el6.noarch.rpm
 
 #Install and start ICINGA2
 yum install icinga2
- 
+
+
 #Start Icinga 2
 #Run the following commands to Enable, Start and check the the status of Icinga 2 service on Centos 7 
 
@@ -76,6 +77,9 @@ icinga2 feature list
 #Icinga web 2 Installation
 
 yum install icingaweb2 icingacli -y
+
+# change icingaweb2 permissions
+chcon -R -t httpd_sys_rw_content_t /etc/icingaweb2/
 
 #I ran into dependency problem.. Added EPEL repo and tried again
 
