@@ -2,9 +2,9 @@
 #--------
 # Check DD-WRT memory script for Icinga2
 # Require: bc
-# v.20160908 by mmarodin
+# v.20170411
 #
-# https://github.com/mmarodin/icinga2-plugins
+# https://github.com/psanthoshkumar/Icinga2_labwork
 #
 
   while getopts ":V:C:H:w:c:h" optname ; do
