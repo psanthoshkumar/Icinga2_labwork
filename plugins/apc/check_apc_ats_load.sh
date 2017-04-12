@@ -2,9 +2,9 @@
 #--------
 # Check APC ATS load script for Icinga2
 # Require: net-snmp-utils, bc
-# v.20160407 by mmarodin
+# v.20170411
 #
-# https://github.com/mmarodin/icinga2-plugins
+# https://github.com/psanthoshkumar/Icinga2_labwork
 #
 
  while getopts ":V:H:C:h" optname ; do
