@@ -2,9 +2,9 @@
 #--------
 # Check Aerohive connected clients script for Icinga2
 # Require: net-snmp-utils, bc
-# v.20160414 by mmarodin
+# v.20170411
 #
-# https://github.com/mmarodin/icinga2-plugins
+# https://github.com/psanthoshkumar/Icinga2_labwork
 #
 
   while getopts ":V:H:C:w:c:h" optname ; do
