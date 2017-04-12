@@ -2,9 +2,9 @@
 #--------
 # Check Aerohive interface/ssid script for Icinga2
 # Require: net-snmp-utils, bc, manubulon SNMP plugin 'check_snmp_int.pl'
-# v.20160414 by mmarodin
+# v.20170411
 #
-# https://github.com/mmarodin/icinga2-plugins
+# https://github.com/psanthoshkumar/Icinga2_labwork
 #
 
  while getopts ":V:H:C:i:d:w:c:h" optname ; do
