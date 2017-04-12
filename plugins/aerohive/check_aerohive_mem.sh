@@ -2,9 +2,9 @@
 #--------
 # Check Aerohive memory script for Icinga2
 # Require: bc, expect 'check_aerohive_mem.exp' script
-# v.20160412 by mmarodin
+# v.20170411
 #
-# https://github.com/mmarodin/icinga2-plugins
+# https://github.com/psanthoshkumar/Icinga2_labwork
 #
 
   while getopts ":H:p:w:c:h" optname ; do
