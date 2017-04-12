@@ -2,9 +2,9 @@
 #--------
 # Check APC PDU outlet script for Icinga2
 # Require: net-snmp-utils, bc
-# v.20160411 by mmarodin
+# v.20170411
 #
-# https://github.com/mmarodin/icinga2-plugins
+# https://github.com/psanthoshkumar/Icinga2_labwork
 #
 
  while getopts ":V:H:C:f:h" optname ; do
