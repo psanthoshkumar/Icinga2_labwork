@@ -2,9 +2,9 @@
 #--------
 # Check Aironet interface/ssid/vlan script for Icinga2
 # Require: net-snmp-utils, bc, expect 'check_aironet_interface.exp' script, manubulon SNMP 'check_snmp_int.pl' plugin
-# v.20160609 by mmarodin
+# v.20170411
 #
-# https://github.com/mmarodin/icinga2-plugins
+# https://github.com/psanthoshkumar/Icinga2_labwork
 #
 
  while getopts ":V:H:C:u:p:i:d:w:c:h" optname ; do
