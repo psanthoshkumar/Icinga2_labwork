@@ -29,6 +29,7 @@ yum install nagios-plugins-all
 icinga2 node wizard
 #give all the required info
 #generate key using Hint at end
+icinga2 pki ticket --cn <Client name>
 #restart icinga2 service to apply changes
 service icinga2 restart
 
