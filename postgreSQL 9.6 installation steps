@@ -1,0 +1,12 @@
+#Download Source code, Copy to host
+cp postgresql-9.6.3.tar.gz /usr/src/
+cd /usr/src/
+tar -xvzf postgresql-9.6.3.tar.gz
+mkdir /var/lib/pgsql96
+yum install c gcc
+yum install readline-devel zlib-devel
+./configure --prefix=/var/lib/pgsql96
+make
+make install
+cd /var/lib/pgsql96/bin/
+
