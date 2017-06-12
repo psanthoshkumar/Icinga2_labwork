@@ -3,10 +3,40 @@ cp postgresql-9.6.3.tar.gz /usr/src/
 cd /usr/src/
 tar -xvzf postgresql-9.6.3.tar.gz
 mkdir /var/lib/pgsql96
+
+#install dependency
 yum install c gcc
 yum install readline-devel zlib-devel
+
+#compile and install postgres
 ./configure --prefix=/var/lib/pgsql96
 make
 make install
 cd /var/lib/pgsql96/bin/
+
+#Create DB instance
+adduser postgres
+mkdir /opt/pgdata
+chown postgres. /opt/pgdata/
+su - postgres -c "/var/lib/pgsql96/bin/initdb -D /opt/pgdata"
+
+#Create Postgres Service
+vim /usr/lib64/systemd/system/postgresql.service
+#Add below
+[Unit]
+Description = Postgresql-9.6 Service
+After = syslog.target systemd-user-sessions.service
+
+[Service]
+User = postgres
+Group = postgres
+Type = forking
+TimeoutSec = 120
+ExecStart = /var/lib/pgsql96/bin/pg_ctl -D /Opt/pgdata -l /opt/pgdata/startup.log start
+ExecStop = /var/lib/pgsql96/bin/pg_ctl -D /opt/pgdata -l /opt/pgdata/startup.log stop
+ExecReload =/var/lib/Pgsql96/bin/pg_ctl -D /opt/pgdata -l /opt/pgdata/startup.log reload
+
+[Install]
+WantedBy = multi-user.target
+##Added
 
