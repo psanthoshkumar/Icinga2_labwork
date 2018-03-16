@@ -1,2 +1,0 @@
-Defaults:icinga !requiretty
-icinga          ALL=(ALL)       NOPASSWD: /opt/scripts/icinga2/event_restart_service.sh

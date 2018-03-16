@@ -1,3 +1,0 @@
-Defaults:icinga !requiretty
-icinga          ALL=(ALL)       NOPASSWD: /opt/scripts/icinga2/check_ovm_hypervisor_byssh.sh
-icinga          ALL=(ALL)       NOPASSWD: /opt/scripts/icinga2/check_ovm_vms_single.sh
